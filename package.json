@@ -1,0 +1,17 @@
+{
+  "name": "zlbx-workbuddy-workbench",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check packages/core/src/device-store.mjs && node --check packages/core/src/api-client.mjs && node --check packages/mcp-server/src/tool-registry.mjs && node --check packages/mcp-server/src/index.mjs && node --check apps/workbench/src/router.mjs && node --check apps/workbench/server.mjs && node --check apps/workbench/public/app.js",
+    "mcp": "node packages/mcp-server/src/index.mjs",
+    "workbench": "node apps/workbench/server.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "zod": "^4.1.0"
+  }
+}
