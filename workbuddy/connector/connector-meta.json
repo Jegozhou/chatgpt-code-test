@@ -1,0 +1,14 @@
+{
+  "name": "知了标讯商机作战台",
+  "name_zh": "知了标讯商机作战台",
+  "name_en": "ZL Bid Intelligence Workbench",
+  "description": "搜索招中标项目、分析企业和竞对、查看市场与历史价格。",
+  "description_zh": "搜索招中标项目、分析企业和竞对、查看市场与历史价格。",
+  "description_en": "Search bidding opportunities, analyze companies and competitors, and inspect market and historical pricing signals.",
+  "source": "zlbx-bidding-workbench",
+  "type": "mcp",
+  "version": "0.1.0",
+  "minWorkbuddyVersion": "5.0.0",
+  "examples_zh": ["找广东近30天服务器相关、金额100万以上的招标项目","分析华为的竞争对手和主要客户","查询联想服务器近一年的中标价格"],
+  "examples_en": ["Find server tenders in Guangdong above RMB 1M from the last 30 days","Analyze Huawei competitors and major customers","Show Lenovo server award prices from the past year"]
+}
