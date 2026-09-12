@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "zlbx-bidding-workbench": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["packages/mcp-server/src/index.mjs"],
+      "runtime": { "type": "node", "version": "20" },
+      "timeout": 30000
+    }
+  }
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>知了标讯 · 商机作战台</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">知</div><div><strong>知了标讯</strong><span>商机作战台</span></div></div>
+      <nav id="nav">
+        <button class="nav-item active" data-view="opportunity"><span>01</span>商机库</button>
+        <button class="nav-item" data-view="company"><span>02</span>企业库</button>
+        <button class="nav-item" data-view="competition"><span>03</span>竞对供应商</button>
+        <button class="nav-item" data-view="market"><span>04</span>市场分析</button>
+        <button class="nav-item" data-view="account"><span>05</span>账户中心</button>
+      </nav>
+      <div class="sidebar-foot"><span class="status-dot"></span><span>WorkBuddy Connector Ready</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><p class="eyebrow">WORKBUDDY · BIDDING INTELLIGENCE</p><h1 id="page-title">商机库</h1></div>
+        <button class="balance-pill" id="balance-pill"><span>积分</span><strong id="balance-value">--</strong></button>
+      </header>
+
+      <section class="scene-strip">
+        <div class="section-head"><div><span>快捷场景</span><h2>直接开始，不必先聊天</h2></div><p>点击场景会自动切换工作区并预填操作</p></div>
+        <div class="scene-grid" id="scene-grid"></div>
+      </section>
+
+      <section class="workspace-card view active" id="view-opportunity">
+        <div class="workspace-head"><div><span class="kicker">OPPORTUNITY RADAR</span><h2>项目检索与临期预测</h2></div><div class="segmented"><button class="active" data-op-mode="search">项目搜索</button><button data-op-mode="expiring">临期项目</button></div></div>
+        <form id="opportunity-form" class="filter-grid">
+          <label class="field field-wide"><span>关键词</span><input name="keywords" placeholder="例如：服务器, 大模型" required /></label>
+          <label class="field"><span>地区</span><input name="province" placeholder="广东" /></label>
+          <label class="field"><span>公告类型</span><select name="bid_type"><option value="全部">全部</option><option value="招标">招标</option><option value="中标">中标</option></select></label>
+          <label class="field"><span>最低金额（万元）</span><input name="min_amount" type="number" min="0" placeholder="100" /></label>
+          <label class="field"><span>开始日期</span><input name="begin_date" type="date" /></label>
+          <label class="field"><span>结束日期</span><input name="end_date" type="date" /></label>
+          <button class="primary" type="submit">开始检索</button>
+        </form>
+        <div class="result-toolbar"><span id="opportunity-summary">等待检索</span><button class="ghost" data-clear="opportunity">清空</button></div>
+        <div id="opportunity-results" class="results"></div>
+      </section>
+
+      <section class="workspace-card view" id="view-company">
+        <div class="workspace-head"><div><span class="kicker">CUSTOMER INTELLIGENCE</span><h2>甲方与企业情报</h2></div></div>
+        <form id="company-form" class="inline-query"><input name="company" placeholder="输入企业名称，例如：华为" required /><button class="primary" type="submit">查企业画像</button></form>
+        <div class="action-grid company-actions">
+          <button data-company-tool="search_company">搜索主体</button><button data-company-tool="get_company_profile">企业画像</button><button data-company-tool="get_company_business_keywords">主营业务</button><button data-company-tool="get_company_partners">合作关系</button><button data-company-tool="get_company_contacts">项目联系人</button>
+        </div>
+        <div id="company-results" class="results"></div>
+      </section>
+
+      <section class="workspace-card view" id="view-competition">
+        <div class="workspace-head"><div><span class="kicker">COMPETITION MAP</span><h2>竞对与潜在投标商</h2></div></div>
+        <div class="dual-panels">
+          <form id="competitor-form" class="query-panel"><span class="panel-no">A</span><h3>竞争对手分析</h3><p>从共同投标记录识别直接竞对。</p><input name="company" placeholder="目标公司" required /><button class="primary" type="submit">分析竞对</button></form>
+          <form id="bidder-form" class="query-panel"><span class="panel-no">B</span><h3>潜在投标商推荐</h3><p>输入项目 ID 或项目标题，寻找历史同类供应商。</p><input name="project" placeholder="项目 ID / 项目标题" required /><button class="primary" type="submit">找潜在供应商</button></form>
+        </div>
+        <div id="competition-results" class="results"></div>
+      </section>
+
+      <section class="workspace-card view" id="view-market">
+        <div class="workspace-head"><div><span class="kicker">MARKET SIGNALS</span><h2>市场、品牌与价格趋势</h2></div></div>
+        <form id="market-form" class="market-builder">
+          <label class="field"><span>分析类型</span><select name="mode"><option value="get_top_purchasers">Top 采购单位</option><option value="get_top_suppliers">Top 中标供应商</option><option value="get_top_brands">Top 品牌</option><option value="aggregate_bids_advanced">市场趋势</option><option value="get_price_trends">历史中标价</option></select></label>
+          <label class="field field-wide"><span>关键词 / 产品</span><input name="keyword" placeholder="服务器" required /></label>
+          <label class="field"><span>品牌（价格查询）</span><input name="brand" placeholder="联想" /></label>
+          <label class="field"><span>型号（价格查询）</span><input name="model" placeholder="可选" /></label>
+          <label class="field"><span>地区</span><input name="province" placeholder="全国" /></label>
+          <label class="field"><span>开始日期</span><input name="begin_date" type="date" /></label>
+          <button class="primary" type="submit">生成分析</button>
+        </form>
+        <div id="market-results" class="results"></div>
+      </section>
+
+      <section class="workspace-card view" id="view-account">
+        <div class="workspace-head"><div><span class="kicker">ACCOUNT & USAGE</span><h2>积分与调用消耗</h2></div><button class="primary small" id="refresh-account">刷新</button></div>
+        <div class="metric-grid">
+          <div class="metric"><span>当前积分</span><strong id="metric-balance">--</strong><small id="metric-source">--</small></div>
+          <div class="metric"><span>累计购买</span><strong id="metric-purchased">--</strong><small>积分</small></div>
+          <div class="metric"><span>累计消耗</span><strong id="metric-consumed">--</strong><small>积分</small></div>
+          <div class="metric"><span>近 15 天调用</span><strong id="metric-calls">--</strong><small>次</small></div>
+        </div>
+        <div class="usage-panel"><div class="section-head"><div><span>DAILY USAGE</span><h2>每日消耗</h2></div></div><div id="usage-chart" class="usage-chart"></div></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="drawer" id="drawer"><button class="drawer-close" id="drawer-close">×</button><div id="drawer-content"></div></aside>
+  <div id="toast" class="toast"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
