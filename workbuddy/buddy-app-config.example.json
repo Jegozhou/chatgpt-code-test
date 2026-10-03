@@ -1,0 +1,47 @@
+{
+  "schema_note": "Versioned source-of-truth example for WorkBuddy Open Platform configuration. Field names mirror the project design; map them to the current Open Platform form/export format during submission.",
+  "app": {
+    "name_zh": "知了标讯 · 商机作战台",
+    "name_en": "ZL Bid Intelligence Workbench",
+    "slogan_zh": "从标讯搜索到客户、竞对与价格，一张工作台完成商机判断",
+    "placeholder_zh": "也可以直接问：帮我找广东最近30天的服务器招标"
+  },
+  "built_in_connector": "zlbx-bidding-workbench",
+  "work_modes": [
+    {
+      "id": "opportunity",
+      "name_zh": "商机雷达",
+      "system_prompt": "你是招投标商机分析助手。优先发现可行动项目，明确截止时间、金额、采购方、紧迫度和下一步动作。绑定 zlbx-workbench Skill。"
+    },
+    {
+      "id": "customer",
+      "name_zh": "客户情报",
+      "system_prompt": "你是企业采购情报助手。围绕企业画像、采购方向、合作关系和联系人建立可跟进的客户情报。绑定 zlbx-workbench Skill。"
+    },
+    {
+      "id": "competition",
+      "name_zh": "竞对与供应商",
+      "system_prompt": "你是竞争与供应商分析助手。用共同投标、合作客户、区域和产品重叠识别竞对，并为项目推荐潜在投标商。绑定 zlbx-workbench Skill。"
+    },
+    {
+      "id": "market",
+      "name_zh": "市场洞察",
+      "system_prompt": "你是招投标市场分析助手。用 Top 买家、Top 供应商、品牌、聚合趋势和历史价格回答市场规模、格局与定价问题。绑定 zlbx-workbench Skill。"
+    }
+  ],
+  "scene_capsules": [
+    { "id": "today-opportunities", "title_zh": "找今天值得跟进的项目", "work_mode": "opportunity", "prompt_zh": "按我的产品关键词找最近发布、最值得跟进的招标项目，并按紧迫度和金额排序。" },
+    { "id": "expiring", "title_zh": "找即将到期项目", "work_mode": "opportunity", "prompt_zh": "找未来90天内即将到期、可能重新采购的周期项目。" },
+    { "id": "customer-purchase", "title_zh": "查某公司的采购情况", "work_mode": "customer", "prompt_zh": "先识别公司主体，再分析企业画像、采购方向、历史合作方和可联系项目。" },
+    { "id": "competitors", "title_zh": "分析竞争对手", "work_mode": "competition", "prompt_zh": "找目标公司的主要竞争对手，并说明共同争夺的产品、客户和地区。" },
+    { "id": "potential-bidders", "title_zh": "找项目潜在投标商", "work_mode": "competition", "prompt_zh": "根据这个项目推荐历史上参与同类项目的潜在投标供应商。" },
+    { "id": "top-purchasers", "title_zh": "查 Top 采购单位", "work_mode": "market", "prompt_zh": "按产品关键词找采购金额和采购次数最高的客户，并给出优先拓展名单。" },
+    { "id": "price-history", "title_zh": "查品牌型号历史中标价", "work_mode": "market", "prompt_zh": "查询指定品牌/型号的历史中标单价、区间、均价和项目明细。" },
+    { "id": "market-trend", "title_zh": "分析过去12个月行业趋势", "work_mode": "market", "prompt_zh": "按月统计过去12个月的项目数量和金额，并做同比趋势解读。" }
+  ],
+  "existing_feature": {
+    "name": "bidding-workbench-ui",
+    "local_preview_url": "http://127.0.0.1:8787",
+    "integration": "MCP Apps / existing-feature embedding after WorkBuddy Open Platform registration"
+  }
+}
